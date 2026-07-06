@@ -4,9 +4,11 @@ bits 16
 org 0x100
 
 start:
-    ; Ensure DS = CS (so data references work)
-    push cs
-    pop ds
+    ; Set DS = CS and set up a safe stack in this segment
+    mov ax, cs
+    mov ds, ax
+    mov ss, ax
+    mov sp, 0FF00h
 
     ; Run tests
     call test_add_rm8_r8      ; ADD r/m8, r8
