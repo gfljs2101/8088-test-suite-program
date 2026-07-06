@@ -1,9 +1,18 @@
-.PHONY: all install clean
+.PHONY: all install clean check-nasm
 
 ASM=8088_add_tests.asm
 OUT=add_tests.com
 
-all: $(OUT)
+all: check-nasm $(OUT)
+
+check-nasm:
+	@echo "Checking for nasm..."
+	@if command -v nasm >/dev/null 2>&1; then \
+		echo "nasm found."; \
+	else \
+		echo "Error: nasm not found. Run 'make install' to attempt installation or install nasm manually."; \
+		exit 1; \
+	fi
 
 install:
 	@echo "Checking for nasm..."
@@ -20,7 +29,9 @@ install:
 	fi
 
 $(OUT): $(ASM)
-	nasm -f bin -o $@ $<
+	@echo "Assembling $< -> $@"
+	@nasm -f bin -o $@ $<
 
 clean:
-	rm -f $(OUT)
+	@rm -f $(OUT)
+	@echo "cleaned"
