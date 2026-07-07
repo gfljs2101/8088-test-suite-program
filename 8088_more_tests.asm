@@ -49,7 +49,7 @@ test_inc_ax:
 .incax_fail:
     mov dx, msg_inc_ax_fail
 .incax_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; INC CX
@@ -63,7 +63,7 @@ test_inc_cx:
 .inccx_fail:
     mov dx, msg_inc_cx_fail
 .inccx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; INC DX
@@ -77,7 +77,7 @@ test_inc_dx:
 .incdx_fail:
     mov dx, msg_inc_dx_fail
 .incdx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; INC BX
@@ -91,7 +91,7 @@ test_inc_bx:
 .incbx_fail:
     mov dx, msg_inc_bx_fail
 .incbx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; INC SP
@@ -105,7 +105,7 @@ test_inc_sp:
 .incsp_fail:
     mov dx, msg_inc_sp_fail
 .incsp_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; INC BP
@@ -119,7 +119,7 @@ test_inc_bp:
 .incbp_fail:
     mov dx, msg_inc_bp_fail
 .incbp_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; INC SI
@@ -133,7 +133,7 @@ test_inc_si:
 .incsi_fail:
     mov dx, msg_inc_si_fail
 .incsi_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; INC DI
@@ -147,7 +147,7 @@ test_inc_di:
 .incdi_fail:
     mov dx, msg_inc_di_fail
 .incdi_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; DEC AX
@@ -161,7 +161,7 @@ test_dec_ax:
 .decax_fail:
     mov dx, msg_dec_ax_fail
 .decax_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; DEC CX
@@ -175,7 +175,7 @@ test_dec_cx:
 .deccx_fail:
     mov dx, msg_dec_cx_fail
 .deccx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; DEC DX
@@ -189,7 +189,7 @@ test_dec_dx:
 .decdx_fail:
     mov dx, msg_dec_dx_fail
 .decdx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; DEC BX
@@ -203,7 +203,7 @@ test_dec_bx:
 .decbx_fail:
     mov dx, msg_dec_bx_fail
 .decbx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; DEC SP
@@ -217,7 +217,7 @@ test_dec_sp:
 .decsp_fail:
     mov dx, msg_dec_sp_fail
 .decsp_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; DEC BP
@@ -231,7 +231,7 @@ test_dec_bp:
 .decbp_fail:
     mov dx, msg_dec_bp_fail
 .decbp_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; DEC SI
@@ -245,7 +245,7 @@ test_dec_si:
 .decsi_fail:
     mov dx, msg_dec_si_fail
 .decsi_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; DEC DI
@@ -259,7 +259,7 @@ test_dec_di:
 .decdi_fail:
     mov dx, msg_dec_di_fail
 .decdi_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; ---------------------------------------------------------------------------
@@ -287,7 +287,7 @@ test_push_pop_ax:
 .ppax_fail:
     mov dx, msg_pp_ax_fail
 .ppax_print:
-    call more_paged_print
+    call paged_print
     ret
 
 test_push_pop_cx:
@@ -302,7 +302,7 @@ test_push_pop_cx:
 .ppcx_fail:
     mov dx, msg_pp_cx_fail
 .ppcx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 test_push_pop_dx:
@@ -317,7 +317,7 @@ test_push_pop_dx:
 .ppdx_fail:
     mov dx, msg_pp_dx_fail
 .ppdx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 test_push_pop_bx:
@@ -332,7 +332,7 @@ test_push_pop_bx:
 .ppbx_fail:
     mov dx, msg_pp_bx_fail
 .ppbx_print:
-    call more_paged_print
+    call paged_print
     ret
 
 test_push_pop_sp:
@@ -349,7 +349,7 @@ test_push_pop_sp:
 .ppsp_fail:
     mov dx, msg_pp_sp_fail
 .ppsp_print:
-    call more_paged_print
+    call paged_print
     ret
 
 test_push_pop_bp:
@@ -364,11 +364,10 @@ test_push_pop_bp:
 .ppbp_fail:
     mov dx, msg_pp_bp_fail
 .ppbp_print:
-    call more_paged_print
+    call paged_print
     ret
 
 test_push_pop_si:
-    mov si, 0S1Ih ; purposely invalid hex label will be adjusted by assembler if needed
     ; use a concrete value instead
     mov si, 0AA55h
     push si
@@ -381,7 +380,7 @@ test_push_pop_si:
 .ppsi_fail:
     mov dx, msg_pp_si_fail
 .ppsi_print:
-    call more_paged_print
+    call paged_print
     ret
 
 test_push_pop_di:
@@ -396,7 +395,7 @@ test_push_pop_di:
 .ppdi_fail:
     mov dx, msg_pp_di_fail
 .ppdi_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; ---------------------------------------------------------------------------
@@ -432,7 +431,7 @@ test_jo:
 .jo_pass:
     mov dx, msg_jo_pass
 .jo_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JNO - jump if not overflow
@@ -445,7 +444,7 @@ test_jno:
 .jno_pass:
     mov dx, msg_jno_pass
 .jno_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JB / JNAE - jump if below (CF=1)
@@ -458,7 +457,7 @@ test_jb:
 .jb_pass:
     mov dx, msg_jb_pass
 .jb_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JNB / JAE - jump if not below (CF=0)
@@ -471,7 +470,7 @@ test_jnb:
 .jnb_pass:
     mov dx, msg_jnb_pass
 .jnb_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JE / JZ - zero flag
@@ -484,7 +483,7 @@ test_je:
 .je_pass:
     mov dx, msg_je_pass
 .je_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JNE / JNZ
@@ -497,7 +496,7 @@ test_jne:
 .jne_pass:
     mov dx, msg_jne_pass
 .jne_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JBE / JNA - CF=1 or ZF=1
@@ -510,7 +509,7 @@ test_jbe:
 .jbe_pass:
     mov dx, msg_jbe_pass
 .jbe_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JA / JNBE - not below or equal
@@ -523,7 +522,7 @@ test_ja:
 .ja_pass:
     mov dx, msg_ja_pass
 .ja_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JS - sign flag
@@ -537,7 +536,7 @@ test_js:
 .js_pass:
     mov dx, msg_js_pass
 .js_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JNS - not sign
@@ -549,7 +548,7 @@ test_jns:
 .jns_pass:
     mov dx, msg_jns_pass
 .jns_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JP / JPE - parity even
@@ -563,7 +562,7 @@ test_jp:
 .jp_pass:
     mov dx, msg_jp_pass
 .jp_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JNP / JPO - parity odd
@@ -576,7 +575,7 @@ test_jnp:
 .jnp_pass:
     mov dx, msg_jnp_pass
 .jnp_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JL / JNGE - less (signed)
@@ -590,7 +589,7 @@ test_jl:
 .jl_pass:
     mov dx, msg_jl_pass
 .jl_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JNL / JGE - not less (signed)
@@ -603,7 +602,7 @@ test_jnl:
 .jnl_pass:
     mov dx, msg_jnl_pass
 .jnl_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JLE / JNG - less or equal (signed)
@@ -616,7 +615,7 @@ test_jle:
 .jle_pass:
     mov dx, msg_jle_pass
 .jle_print:
-    call more_paged_print
+    call paged_print
     ret
 
 ; JG / JNLE - greater (signed)
@@ -629,24 +628,9 @@ test_jg:
 .jg_pass:
     mov dx, msg_jg_pass
 .jg_print:
-    call more_paged_print
+    call paged_print
     ret
 
-; ---------------------------------------------------------------------------
-; Minimal paged_print compatible routine for these supplemental tests
-; This is independent from the main file's paged_print; it simply prints DX string
-more_paged_print:
-    push ax
-    push bx
-    push cx
-    push dx
-    mov ah, 9
-    int 21h
-    pop dx
-    pop cx
-    pop bx
-    pop ax
-    ret
 
 ; ---------------------------------------------------------------------------
 ; Messages and data
@@ -734,6 +718,3 @@ msg_jle_pass       db 'JLE: PASS',0Dh,0Ah,'$'
 msg_jle_fail       db 'JLE: FAIL',0Dh,0Ah,'$'
 msg_jg_pass        db 'JG: PASS',0Dh,0Ah,'$'
 msg_jg_fail        db 'JG: FAIL',0Dh,0Ah,'$'
-
-section .bss
-; empty

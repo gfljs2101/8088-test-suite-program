@@ -1218,6 +1218,7 @@ paged_print:
     pop ax
     ret
 
+%include "8088_more_tests.asm"
 ; ---------------------------------------------------------------------------
 ; Data area (strings and test memory)
 mem_rm8:     db 0
@@ -1259,6 +1260,11 @@ cmp_rm8_a:   db 0
 cmp_rm8_b:   db 0
 cmp_rm16_a:  dw 0
 cmp_rm16_b:  dw 0
+
+; paging counter and prompt
+page_count:  dw 0
+scroll_prompt: db 'scroll?',0Dh,0Ah,'$'
+scroll_nl:   db 0Dh,0Ah,'$'
 
 ; ADD test strings
 test1_pass:  db 'ADD r/m8, r8: PASS',0Dh,0Ah,'$'
