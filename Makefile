@@ -1,7 +1,7 @@
 .PHONY: all install clean check-nasm
 
-ASM=8088_tests.asm
-OUT=8088test.com
+ASM=8088_add_tests.asm
+OUT=add_tests.com
 
 all: check-nasm $(OUT)
 
