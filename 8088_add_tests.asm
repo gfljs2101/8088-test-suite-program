@@ -1,6 +1,7 @@
 ; 8088/8086 test suite for ADD and OR opcodes + PUSH/POP ES/CS and more
 ; NASM, org 0x100 -> flat .COM output
 bits 16
+cpu 8086
 org 0x100
 
 start:
