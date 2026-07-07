@@ -1376,7 +1376,6 @@ test_push_pop_bp:
     ret
 
 test_push_pop_si:
-    mov si, 0S1Ih ; purposely invalid hex label will be adjusted by assembler if needed
     ; use a concrete value instead
     mov si, 0AA55h
     push si
