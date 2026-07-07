@@ -99,10 +99,10 @@ start:
     ; Done
     mov dx, msg_done
     mov ah, 9
-
+    int 21h
 
     mov ax, 4C00h
-
+    int 21h
 
 ; ---------------------------------------------------------------------------
 ; Constants for flag masks and expected values
@@ -135,7 +135,7 @@ test_add_rm8_r8:
     mov dx, test1_fail
 .t1_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; Test 2: ADD r/m16, r16
@@ -158,7 +158,7 @@ test_add_rm16_r16:
     mov dx, test2_fail
 .t2_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; Test 3: ADD r8, r/m8
@@ -180,7 +180,7 @@ test_add_r8_rm8:
     mov dx, test3_fail
 .t3_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; Test 4: ADD r16, r/m16
@@ -202,7 +202,7 @@ test_add_r16_rmem:
     mov dx, test4_fail
 .t4_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; Test 5: ADD AL, d8
@@ -223,7 +223,7 @@ test_add_al_d8:
     mov dx, test5_fail
 .t5_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; Test 6: ADD AX, d16
@@ -244,7 +244,7 @@ test_add_ax_d16:
     mov dx, test6_fail
 .t6_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; ---------------------------------------------------------------------------
@@ -271,7 +271,7 @@ test_or_rm8_r8:
     mov dx, or1_fail
 .or1_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; OR r/m16, r16 (09 /r)
@@ -294,7 +294,7 @@ test_or_rm16_r16:
     mov dx, or2_fail
 .or2_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; OR r8, r/m8 (0A /r)
@@ -316,7 +316,7 @@ test_or_r8_rm8:
     mov dx, or3_fail
 .or3_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; OR r16, r/m16 (0B /r)
@@ -338,7 +338,7 @@ test_or_r16_rmem:
     mov dx, or4_fail
 .or4_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; OR AL, imm8 (0C ib)
@@ -359,7 +359,7 @@ test_or_al_imm8:
     mov dx, or5_fail
 .or5_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; OR AX, imm16 (0D iw)
@@ -380,7 +380,7 @@ test_or_ax_imm16:
     mov dx, or6_fail
 .or6_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; ---------------------------------------------------------------------------
@@ -400,7 +400,7 @@ test_push_es:
     mov dx, pesh_fail
 .pesh_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; POP ES (0x07) - push a value then pop ES
@@ -417,7 +417,7 @@ test_pop_es:
     mov dx, pes_fail
 .pes_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; PUSH CS (0x0E) - push CS then pop AX and compare
@@ -433,7 +433,7 @@ test_push_cs:
     mov dx, pcsh_fail
 .pcsh_print:
     mov ah, 9
-
+    int 21h
     ret
 
 ; ---------------------------------------------------------------------------
@@ -453,8 +453,8 @@ test_adc_rm8_r8:
 .adc1_fail:
     mov dx, adc1_fail
 .adc1_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -472,8 +472,8 @@ test_adc_rm16_r16:
 .adc2_fail:
     mov dx, adc2_fail
 .adc2_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -490,8 +490,8 @@ test_adc_r8_rm8:
 .adc3_fail:
     mov dx, adc3_fail
 .adc3_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -508,8 +508,8 @@ test_adc_r16_rmem:
 .adc4_fail:
     mov dx, adc4_fail
 .adc4_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -525,8 +525,8 @@ test_adc_al_d8:
 .adc5_fail:
     mov dx, adc5_fail
 .adc5_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -542,8 +542,8 @@ test_adc_ax_d16:
 .adc6_fail:
     mov dx, adc6_fail
 .adc6_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -561,8 +561,8 @@ test_sbb_rm8_r8:
 .sbb1_fail:
     mov dx, sbb1_fail
 .sbb1_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -580,8 +580,8 @@ test_sbb_rm16_r16:
 .sbb2_fail:
     mov dx, sbb2_fail
 .sbb2_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -598,8 +598,8 @@ test_sbb_r8_rm8:
 .sbb3_fail:
     mov dx, sbb3_fail
 .sbb3_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -616,8 +616,8 @@ test_sbb_r16_rmem:
 .sbb4_fail:
     mov dx, sbb4_fail
 .sbb4_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -633,8 +633,8 @@ test_sbb_al_d8:
 .sbb5_fail:
     mov dx, sbb5_fail
 .sbb5_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -650,8 +650,8 @@ test_sbb_ax_d16:
 .sbb6_fail:
     mov dx, sbb6_fail
 .sbb6_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     clc
     ret
 
@@ -668,8 +668,8 @@ test_and_rm8_r8:
 .and1_fail:
     mov dx, and1_fail
 .and1_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; AND r/m16, r16 (21 /r)
@@ -685,8 +685,8 @@ test_and_rm16_r16:
 .and2_fail:
     mov dx, and2_fail
 .and2_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; AND r8, r/m8 (22 /r)
@@ -701,8 +701,8 @@ test_and_r8_rm8:
 .and3_fail:
     mov dx, and3_fail
 .and3_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; AND r16, r/m16 (23 /r)
@@ -717,8 +717,8 @@ test_and_r16_rmem:
 .and4_fail:
     mov dx, and4_fail
 .and4_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; AND AL, imm8 (24 ib)
@@ -732,8 +732,8 @@ test_and_al_imm8:
 .and5_fail:
     mov dx, and5_fail
 .and5_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; AND AX, imm16 (25 iw)
@@ -747,8 +747,8 @@ test_and_ax_imm16:
 .and6_fail:
     mov dx, and6_fail
 .and6_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; DAA (27)
@@ -763,8 +763,8 @@ test_daa:
 .daa_fail:
     mov dx, daa_fail
 .daa_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; DAS (2F)
@@ -782,8 +782,8 @@ test_das:
 .das_fail:
     mov dx, das_fail
 .das_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; SUB r/m8, r8 (28 /r)
@@ -799,8 +799,8 @@ test_sub_rm8_r8:
 .sub1_fail:
     mov dx, sub1_fail
 .sub1_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; SUB r/m16, r16 (29 /r)
@@ -816,8 +816,8 @@ test_sub_rm16_r16:
 .sub2_fail:
     mov dx, sub2_fail
 .sub2_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; SUB r8, r/m8 (2A /r)
@@ -832,8 +832,8 @@ test_sub_r8_rm8:
 .sub3_fail:
     mov dx, sub3_fail
 .sub3_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; SUB r16, r/m16 (2B /r)
@@ -848,8 +848,8 @@ test_sub_r16_rmem:
 .sub4_fail:
     mov dx, sub4_fail
 .sub4_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; SUB AL, imm8 (2C ib)
@@ -863,8 +863,8 @@ test_sub_al_d8:
 .sub5_fail:
     mov dx, sub5_fail
 .sub5_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; SUB AX, imm16 (2D iw)
@@ -878,8 +878,8 @@ test_sub_ax_d16:
 .sub6_fail:
     mov dx, sub6_fail
 .sub6_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; XOR r/m8, r8 (30 /r)
@@ -895,8 +895,8 @@ test_xor_rm8_r8:
 .xor1_fail:
     mov dx, xor1_fail
 .xor1_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; XOR r/m16, r16 (31 /r)
@@ -912,8 +912,8 @@ test_xor_rm16_r16:
 .xor2_fail:
     mov dx, xor2_fail
 .xor2_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; XOR r8, r/m8 (32 /r)
@@ -928,8 +928,8 @@ test_xor_r8_rm8:
 .xor3_fail:
     mov dx, xor3_fail
 .xor3_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; XOR r16, r/m16 (33 /r)
@@ -944,8 +944,8 @@ test_xor_r16_rmem:
 .xor4_fail:
     mov dx, xor4_fail
 .xor4_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; XOR AL, imm8 (34 ib)
@@ -959,8 +959,8 @@ test_xor_al_imm8:
 .xor5_fail:
     mov dx, xor5_fail
 .xor5_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; XOR AX, imm16 (35 iw)
@@ -974,8 +974,8 @@ test_xor_ax_imm16:
 .xor6_fail:
     mov dx, xor6_fail
 .xor6_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; CMP r/m8, r8 (38 /r)
@@ -989,8 +989,8 @@ test_cmp_rm8_r8:
 .cmp1_pass:
     mov dx, cmp1_pass
 .cmp1_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; CMP r/m16, r16 (39 /r)
@@ -1004,8 +1004,8 @@ test_cmp_rm16_r16:
 .cmp2_pass:
     mov dx, cmp2_pass
 .cmp2_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; CMP r8, r/m8 (3A /r)
@@ -1019,8 +1019,8 @@ test_cmp_r8_rm8:
 .cmp3_pass:
     mov dx, cmp3_pass
 .cmp3_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; CMP r16, r/m16 (3B /r)
@@ -1034,8 +1034,8 @@ test_cmp_r16_rmem:
 .cmp4_pass:
     mov dx, cmp4_pass
 .cmp4_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; CMP AL, imm8 (3C ib)
@@ -1048,8 +1048,8 @@ test_cmp_al_d8:
 .cmp5_pass:
     mov dx, cmp5_pass
 .cmp5_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; CMP AX, imm16 (3D iw)
@@ -1062,8 +1062,8 @@ test_cmp_ax_d16:
 .cmp6_pass:
     mov dx, cmp6_pass
 .cmp6_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; PUSH SS (0x16) - push SS then pop AX to verify value
@@ -1079,8 +1079,8 @@ test_push_ss:
 .pssh_fail:
     mov dx, pssh_fail
 .pssh_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; POP SS (0x17) - push a value then pop SS
@@ -1096,8 +1096,8 @@ test_pop_ss:
 .pss_fail:
     mov dx, pss_fail
 .pss_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; PUSH DS (0x1E) - push DS then pop AX to verify value
@@ -1113,8 +1113,8 @@ test_push_ds:
 .pdsh_fail:
     mov dx, pdsh_fail
 .pdsh_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; POP DS (0x1F) - push a value then pop DS
@@ -1130,8 +1130,8 @@ test_pop_ds:
 .pds_fail:
     mov dx, pds_fail
 .pds_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; AAA (37)
@@ -1149,8 +1149,8 @@ test_aaa:
 .aaa_fail:
     mov dx, aaa_fail
 .aaa_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
 ; AAS (3F)
@@ -1168,57 +1168,10 @@ test_aas:
 .aas_fail:
     mov dx, aas_fail
 .aas_print:
-    call paged_print
-
+    mov ah,9
+    int 21h
     ret
 
-; ---------------------------------------------------------------------------
-; Paged print routine and paging data
-paged_print:
-    push ax
-    push bx
-    push cx
-    push dx
-    push si
-    push di
-
-    ; print the string pointed by DX using DOS function 9
-    mov ah, 9
-    int 21h
-
-    ; increment printed-line counter
-    inc word [page_count]
-    ; compare with limit (24)
-    mov ax, [page_count]
-    cmp ax, 24
-    jb .paged_done
-
-    ; print prompt "scroll?" and wait for any key
-    mov dx, scroll_prompt
-    mov ah, 9
-    int 21h
-    ; wait for any key (INT 16h AH=0)
-    mov ah, 0
-    int 16h
-
-    ; optional new line after key
-    mov dx, scroll_nl
-    mov ah, 9
-    int 21h
-
-    ; reset counter
-    mov word [page_count], 0
-
-.paged_done:
-    pop di
-    pop si
-    pop dx
-    pop cx
-    pop bx
-    pop ax
-    ret
-
-%include "8088_more_tests.asm"
 ; ---------------------------------------------------------------------------
 ; Data area (strings and test memory)
 mem_rm8:     db 0
@@ -1260,11 +1213,6 @@ cmp_rm8_a:   db 0
 cmp_rm8_b:   db 0
 cmp_rm16_a:  dw 0
 cmp_rm16_b:  dw 0
-
-; paging counter and prompt
-page_count:  dw 0
-scroll_prompt: db 'scroll?',0Dh,0Ah,'$'
-scroll_nl:   db 0Dh,0Ah,'$'
 
 ; ADD test strings
 test1_pass:  db 'ADD r/m8, r8: PASS',0Dh,0Ah,'$'
