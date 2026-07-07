@@ -974,9 +974,9 @@ paged_print:
 
     ; increment printed-line counter
     inc word [page_count]
-    ; compare with limit (25)
+    ; compare with limit (24)
     mov ax, [page_count]
-    cmp ax, 25
+    cmp ax, 24
     jb .paged_done
 
     ; print prompt "scroll?" and wait for any key
